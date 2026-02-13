@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Velocity Bikes</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+    }
+
+    body {
+      background: #0f1115;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background: #000;
+    }
+
+    header h1 {
+      color: #ff3c00;
+      letter-spacing: 1px;
+    }
+
+    header nav a {
+      margin-left: 25px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    header nav a:hover {
+      color: #ff3c00;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px;
+      background: linear-gradient(135deg, #000000, #1c1f26);
+    }
+
+    .hero-text {
+      max-width: 50%;
+    }
+
+    .hero-text h2 {
+      font-size: 56px;
+      margin-bottom: 20px;
+    }
+
+    .hero-text span {
+      color: #ff3c00;
+    }
+
+    .hero-text p {
+      color: #cfcfcf;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .hero-text button {
+      padding: 14px 34px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      background: #ff3c00;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .hero-img {
+      width: 480px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    }
+
+    /* STATS */
+    .stats {
+      padding: 60px;
+      background: #000;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      text-align: center;
+    }
+
+    .stat h3 {
+      font-size: 48px;
+      color: #ff3c00;
+      margin-bottom: 10px;
+    }
+
+    .stat p {
+      color: #bdbdbd;
+      font-size: 16px;
+    }
+
+    /* FEATURES */
+    .features {
+      padding: 80px 60px;
+      background: #12141a;
+    }
+
+    .features h2 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 50px;
+      color: #ff3c00;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .feature {
+      background: #1b1e26;
+      padding: 30px;
+      border-radius: 12px;
+      transition: transform 0.3s;
+    }
+
+    .feature:hover {
+      transform: translateY(-8px);
+    }
+
+    .feature h3 {
+      margin-bottom: 10px;
+      color: #ff7a00;
+    }
+
+    .feature p {
+      color: #bdbdbd;
+      font-size: 15px;
+    }
+
+    /* MODELS */
+    .models {
+      padding: 80px 60px;
+      background: #0f1115;
+    }
+
+    .models h2 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 50px;
+      color: #ff3c00;
+    }
+
+    .model-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .model-card {
+      background: #1b1e26;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .model-card:hover {
+      transform: scale(1.03);
+    }
+
+    .model-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .model-info {
+      padding: 25px;
+    }
+
+    .model-info h3 {
+      color: #ff7a00;
+      margin-bottom: 10px;
+    }
+
+    .model-info p {
+      color: #bdbdbd;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .model-info .price {
+      color: #ff3c00;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials {
+      padding: 80px 60px;
+      background: #12141a;
+    }
+
+    .testimonials h2 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 50px;
+      color: #ff3c00;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .testimonial {
+      background: #1b1e26;
+      padding: 30px;
+      border-radius: 12px;
+      border-left: 4px solid #ff3c00;
+    }
+
+    .testimonial p {
+      color: #cfcfcf;
+      font-style: italic;
+      margin-bottom: 15px;
+    }
+
+    .testimonial h4 {
+      color: #ff7a00;
+      font-size: 16px;
+    }
+
+    /* CTA */
+    .cta {
+      padding: 70px 40px;
+      text-align: center;
+      background: linear-gradient(135deg, #ff3c00, #ff7a00);
+      color: #000;
+    }
+
+    .cta h2 {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    .cta button {
+      padding: 14px 36px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      background: #000;
+      color: #fff;
+      border-radius: 4px;
+    }
+
+    footer {
+      padding: 20px;
+      text-align: center;
+      background: #000;
+      color: #888;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-text {
+        max-width: 100%;
+        margin-bottom: 40px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Royal Bikes</h1>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#features">Features</a>
+    <a href="#models">Models</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <h2>Ride the <span>Future</span></h2>
+    <p>Royal Bikes are engineered for riders who crave speed, control, and bold design. Built for the streets. Ready for the track.</p>
+    <button>Book a Test Ride</button>
+  </div>
+  <img class="hero-img" src="https://images-stag.jazelc.com/uploads/theautopian-m2en/110822-Kawasaki-Ninja-HEV-23MY_-_0369_-STU1-scaled.jpg" alt="Bike Image">
+</section>
+
+<section class="stats">
+  <div class="stat">
+    <h3>15+</h3>
+    <p>Years of Excellence</p>
+  </div>
+  <div class="stat">
+    <h3>50K+</h3>
+    <p>Happy Riders</p>
+  </div>
+  <div class="stat">
+    <h3>25+</h3>
+    <p>Award-Winning Models</p>
+  </div>
+  <div class="stat">
+    <h3>98%</h3>
+    <p>Customer Satisfaction</p>
+  </div>
+</section>
+
+<section class="features" id="features">
+  <h2>Why Royal Bikes?</h2>
+  <div class="feature-grid">
+    <div class="feature">
+      <h3>High Performance</h3>
+      <p>Precision-engineered engines delivering smooth power and thrilling acceleration.</p>
+    </div>
+    <div class="feature">
+      <h3>Aggressive Design</h3>
+      <p>Sharp aerodynamics and modern styling that turns heads everywhere.</p>
+    </div>
+    <div class="feature">
+      <h3>Advanced Safety</h3>
+      <p>Equipped with ABS, traction control, and ride assist technology.</p>
+    </div>
+    <div class="feature">
+      <h3>Rider Comfort</h3>
+      <p>Ergonomic seating and suspension tuned for daily rides and long tours.</p>
+    </div>
+  </div>
+</section>
+
+<section class="models" id="models">
+  <h2>Our Models</h2>
+  <div class="model-grid">
+    <div class="model-card">
+      <img src="https://images.unsplash.com/photo-1558981359-219d6364c9c8?w=400" alt="Sport Model">
+      <div class="model-info">
+        <h3>Royal Sport X1</h3>
+        <p>The ultimate street fighter. 200HP of pure adrenaline with cutting-edge electronics.</p>
+        <div class="price">$18,999</div>
+      </div>
+    </div>
+    <div class="model-card">
+      <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=400" alt="Cruiser Model">
+      <div class="model-info">
+        <h3>Royal Cruiser GT</h3>
+        <p>Built for long rides. Classic styling meets modern comfort and reliability.</p>
+        <div class="price">$15,499</div>
+      </div>
+    </div>
+    <div class="model-card">
+      <img src="https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=400" alt="Adventure Model">
+      <div class="model-info">
+        <h3>Royal Adventure R9</h3>
+        <p>Go anywhere. Do anything. Dominate both highways and off-road trails.</p>
+        <div class="price">$21,299</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <h2>What Riders Say</h2>
+  <div class="testimonial-grid">
+    <div class="testimonial">
+      <p>"Best bike I've ever owned. The power delivery is incredible and the handling is razor-sharp. Royal Bikes understands what riders actually want."</p>
+      <h4>— Marcus T., Los Angeles</h4>
+    </div>
+    <div class="testimonial">
+      <p>"I've been riding for 20 years and the Royal Cruiser GT is hands down the most comfortable bike for long distances. Plus it looks absolutely stunning."</p>
+      <h4>— Sarah K., Austin</h4>
+    </div>
+    <div class="testimonial">
+      <p>"The build quality is exceptional. Every detail feels premium. Customer service was amazing throughout the entire buying process."</p>
+      <h4>— James R., Miami</h4>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Ready to Feel the Power?</h2>
+  <button>Get Started</button>
+</section>
+
+<footer>
+  <p>© 2026 Royal Riders. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
